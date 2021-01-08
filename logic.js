@@ -1,18 +1,37 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     var numberButton = $(".number");
+    var operatorButton = $(".operator");
+    var resultDisplay = $("#result");
+    var clear = $(".clear");
+    var equal = $(".equal");
 
-    numberButton.on("click", function(event){
+    var firstNum = "";
+    // var operator;
+    var secondNum = "";
+    var result;
+
+    numberButton.on("click", function (event) {
         event.preventDefault();
-        console.log(event);
+        firstNum += this.value;
+        resultDisplay.text(firstNum);
     })
 
-    var operatorButton = $(".operator");
-
-    operatorButton.on("click", function(event){
+    operatorButton.on("click", function (event) {
         event.preventDefault();
-        console.log(event);
+        var operator = this.value;
+
+    })
+
+    clear.on("click", function (event) {
+        event.preventDefault();
+        resultDisplay.empty();
+        firstNum = "";
+    })
+
+    function add(firstNum, secondNum) {
+        return firstNum + secondNum;
     }
-    )
+
 });
 
